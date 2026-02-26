@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Fitness">
+  <meta name="theme-color" content="#d97706">
+  <title>Fitness - AI Personal Trainer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiRml0bmVzcyBBSSIsInNob3J0X25hbWUiOiJGaXRuZXNzIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiNmNWYxZWUiLCJ0aGVtZV9jb2xvciI6IiNkOTc3MDYiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTVRJNElpQm9aV2xuYUhROUlqRXlPQ0lnZG1sbGQwSnZlRDBpTUNBd0lERXlPQ0F4TWpnaUlIaHRiRzV6UFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4eU1EQXdMM04yWnlJK1BHUmxabk0rUEhONWJXSnZiQ0JwWkQwaVpHVmpiM0lpUGp3dmMzbHRZbTlzUGp3dlpHVm1jejQ4WjJGdWJHbGxiaUJwWkQwaUlqQWlJR04xY25abGN5NWtjbTl3UFNKemFHRmtiM2NpUGp4d1lYUm9JR1E5SWswMk5DQTBORWd3VkRRMGFqSXdZVEl3SURBZ01DQXdJREV5TkNCM2F5NW1hV3hzUFNKMGIzQXZibTl1WlNJZ2MzUnliMnRsUFNJak0ySXdNVGsySWlCemRISnZhMlV0ZDJsa2RHZzlJalJpUGp3dmNHRjBhRDQ4Y0dGMGFDQmtQU0pOTUNBMk5FNDFUREF1TlNBNU5TNHpWamczTGpSNElEazFMak5ESXk0eElEazFMak1nTUNBNE9DNDFJREF3SURnd0xqVlFNQ0EzTWk0MVF6QWDOVWN1TXlBd0lEVXdMalVnTUM0eElEUTBMallnTUM0eFFUSTRJREk0SURFZ01TQXdJREEySURBZ01URXpMalJxTWpCaE1qQWdNakFnTUNBd0lERWdNVEkwSURnM0xqUkRNVEk0SURrMExqY2dNVEk0SURFMU1TNGdNVEk0SURFMU1UaFFNVEk0SURFek1TNHhWall5VGpFdU9VSXlPUzQxSURBZ05EVXVOU0F3SURNM0xqVk1NemtnTkRWV05EUXhOalZ5TlRJdU1pQTFNaTR5SURFZ01TQXdJREl3SURBeElERXlOQ0E0Tnk0MGVDQXhNelV1TjJNeExqRWdOaTQySURBZ01UVXVNeUF3SURJeUxqUkRNVEk0SURFMk5DNDBJREVtTVNBeE5UY3VOU0F3SURFMk1pNDJJREF0SURVdU15QXdMVEV3TGpNdE1TNDNMVEUwTGpndE5DNDJhQzAwTGpaTk5qUWdORFJLTlRJdU15QTRPVE11TjJneExqSmhNVGNnTVRjZ01DQXdJREVnTVRVdU55QXhOUzQzYURFdU1tRTFJRFVnTUNBd0lERWdOUzQxSURVdU5XZ3hMakpoTVRjZ01UY2dNQ0F3SURFZ01UVXVOeUF4TlM0M2FERXVNbTAwTGpZZ05DNDJRekV0TWk0eklEQXRNVE11TlMwdU9TMHhPQzQySURJdU0wTXRNalVnTkM0M0xUSTNMamNnTVRRdE16TXVNUzR5SURJdU9DMHlMalF0TkM0NExUVXVOQzAyTGpsME1Ea3ljV0UwTGpVMkxURTFMakl0TVM0MExUazFMalkxZWlKbWFXeHNQU0lqWmpnMU5ERXdJaU0rUEM5d1lYUm9QaUNIcGhaMGFFVnNaVzFsYm5ROUlrMDJOQ0EwTkZNMUlEUTBJRGc1SURBNk55NHpNQ0E0T1MreER0VmJBdDJYdVRzaTQwZTZPVWpvb2FubVRrb2lJblJGc3dIMy9Ua01lTVRoeEdncTczQUtjdSBoekFBc1hiaWdBQURJWkp4OEFBQUFCSlJVNU0yWXlQQT09IiwicHVycG9zZSI6ImFueSJ9XX0=">
+</head>
+<body>
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    // Placeholder para iconos
+    const Icon = ({ name, size = 24, className = "" }) => (
+      <div className={`inline-block ${className}`} style={{ width: size, height: size }}>
+        {name === 'flame' && '🔥'}
+        {name === 'target' && '🎯'}
+        {name === 'award' && '🏆'}
+        {name === 'dumbbell' && '💪'}
+        {name === 'food' && '🥗'}
+        {name === 'chart' && '📊'}
+        {name === 'calendar' && '📅'}
+        {name === 'settings' && '⚙️'}
+        {name === 'chat' && '💬'}
+        {name === 'check' && '✓'}
+        {name === 'x' && '✕'}
+      </div>
+    );
+
+    const FitnessApp = () => {
+      const [profile, setProfile] = useState(null);
+      const [apiKey, setApiKey] = useState('');
+      const [currentView, setCurrentView] = useState('home');
+
+      useEffect(() => {
+        const saved = localStorage.getItem('fitnessProfile');
+        const savedKey = localStorage.getItem('fitnessApiKey');
+        if (saved) setProfile(JSON.parse(saved));
+        if (savedKey) setApiKey(savedKey);
+      }, []);
+
+      if (!profile) {
+        return (
+          <div className="p-6 space-y-6 min-h-screen bg-stone-50">
+            <h2 className="text-2xl font-bold text-amber-900">Configura tu Perfil</h2>
+            <p className="text-stone-600">Completa tus datos para empezar</p>
+            <button 
+              onClick={() => {
+                const name = prompt('Tu nombre:');
+                const age = prompt('Tu edad:');
+                const weight = prompt('Tu peso (kg):');
+                const height = prompt('Tu altura (cm):');
+                if (name && age && weight && height) {
+                  const p = { name, age, weight, height };
+                  setProfile(p);
+                  localStorage.setItem('fitnessProfile', JSON.stringify(p));
+                }
+              }}
+              className="w-full bg-amber-700 text-white p-4 rounded-lg font-semibold"
+            >
+              Crear Perfil
+            </button>
+          </div>
+        );
+      }
+
+      return (
+        <div className="min-h-screen bg-stone-50 pb-20">
+          <div className="p-6 space-y-6">
+            <div className="flex justify-between items-center">
+              <div>
+                <h1 className="text-3xl font-bold text-amber-900">Hola, {profile.name}</h1>
+                <p className="text-stone-600">Tu peso: {profile.weight}kg</p>
+              </div>
+              <button onClick={() => setCurrentView('settings')}>
+                <Icon name="settings" size={28} className="text-amber-700" />
+              </button>
+            </div>
+
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl border border-orange-200">
+              <div className="text-center">
+                <Icon name="flame" size={48} />
+                <p className="text-3xl font-bold text-orange-900 mt-2">¡Empecemos!</p>
+                <p className="text-sm text-stone-600 mt-1">Configura tu API Key para usar IA</p>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              {[
+                { icon: 'dumbbell', title: 'Entrenamiento', subtitle: 'Rutina personalizada con IA' },
+                { icon: 'food', title: 'Nutrición', subtitle: 'Plan de comidas y lista de compra' },
+                { icon: 'chart', title: 'Estadísticas', subtitle: 'Tu progreso y logros' },
+                { icon: 'calendar', title: 'Historial', subtitle: 'Todos tus registros' }
+              ].map((item, i) => (
+                <div key={i} className="bg-white p-4 rounded-xl shadow-sm border border-stone-200">
+                  <div className="flex items-center gap-3">
+                    <Icon name={item.icon} size={28} />
+                    <div>
+                      <p className="font-semibold text-amber-900">{item.title}</p>
+                      <p className="text-sm text-stone-600">{item.subtitle}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {currentView === 'settings' && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+              <div className="bg-white rounded-2xl p-6 max-w-md w-full">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-xl font-bold">Configuración</h3>
+                  <button onClick={() => setCurrentView('home')}>
+                    <Icon name="x" size={24} />
+                  </button>
+                </div>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">API Key Anthropic</label>
+                    <input
+                      type="password"
+                      value={apiKey}
+                      onChange={(e) => setApiKey(e.target.value)}
+                      placeholder="sk-ant-..."
+                      className="w-full p-3 bg-stone-100 border rounded-lg"
+                    />
+                    <button
+                      onClick={() => {
+                        localStorage.setItem('fitnessApiKey', apiKey);
+                        alert('✅ Guardado');
+                      }}
+                      className="w-full mt-2 bg-amber-700 text-white p-3 rounded-lg font-semibold"
+                    >
+                      Guardar
+                    </button>
+                  </div>
+                  <div className="text-sm text-stone-600">
+                    <p>Versión: 2.0</p>
+                    <p>Con Claude AI</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div className="fixed bottom-0 left-0 right-0 bg-white border-t flex justify-around p-3">
+            {['home', 'workout', 'nutrition', 'stats'].map((view, i) => (
+              <button key={i} onClick={() => setCurrentView(view)} className="flex flex-col items-center">
+                <Icon name={view === 'home' ? 'dumbbell' : view === 'workout' ? 'chart' : view === 'nutrition' ? 'food' : 'calendar'} size={24} />
+                <span className="text-xs mt-1">{view === 'home' ? 'Inicio' : view === 'workout' ? 'Rutina' : view === 'nutrition' ? 'Nutrición' : 'Stats'}</span>
+              </button>
+            ))}
+          </div>
+
+          <button className="fixed bottom-24 right-6 bg-gradient-to-br from-amber-600 to-red-600 text-white p-4 rounded-full shadow-lg">
+            <Icon name="chat" size={24} />
+          </button>
+        </div>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<FitnessApp />);
+  </script>
+
+  <script>
+    // Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('data:application/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdpbnN0YWxsJywgKCkgPT4gc2VsZi5za2lwV2FpdGluZygpKTtzZWxmLmFkZEV2ZW50TGlzdGVuZXIoJ2FjdGl2YXRlJywgKCkgPT4gY29uc29sZS5sb2coJ0FjdGl2YXRlZCcpKTtzZWxmLmFkZEV2ZW50TGlzdGVuZXIoJ2ZldGNoJywgZSA9PiBlLnJlc3BvbmRXaXRoKGZldGNoKGUucmVxdWVzdCkpKTs=')
+        .then(() => console.log('Service Worker registered'))
+        .catch(() => console.log('Service Worker failed'));
+    }
+  </script>
+</body>
+</html>
