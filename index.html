@@ -169,4 +169,115 @@
                 <p className="text-sm text-stone-600">Peso</p>
               </div>
               <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-5 rounded-2xl border-2 border-purple-200">
-                <div className="
+                <div className="text-3xl mb-2">🏆</div>
+                <p className="text-2xl font-bold text-purple-900">0</p>
+                <p className="text-sm text-stone-600">Logros</p>
+              </div>
+            </div>
+
+            {/* Menu Cards */}
+            <div className="space-y-3">
+              {[
+                { emoji: '💪', title: 'Entrenamiento', subtitle: 'Rutina personalizada con IA', color: 'red' },
+                { emoji: '🥗', title: 'Nutrición', subtitle: 'Plan de comidas y lista de compra', color: 'amber' },
+                { emoji: '📊', title: 'Estadísticas', subtitle: 'Tu progreso y logros', color: 'blue' },
+                { emoji: '📅', title: 'Historial', subtitle: 'Todos tus registros', color: 'stone' }
+              ].map((item, i) => (
+                <button
+                  key={i}
+                  onClick={() => alert(`Próximamente: ${item.title}`)}
+                  className="w-full bg-white p-5 rounded-2xl shadow-sm border-2 border-stone-200 btn-active"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="text-4xl">{item.emoji}</div>
+                    <div className="text-left flex-1">
+                      <p className="font-bold text-lg text-amber-900">{item.title}</p>
+                      <p className="text-sm text-stone-600">{item.subtitle}</p>
+                    </div>
+                    <div className="text-2xl text-stone-400">›</div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Settings Modal */}
+          {showSettings && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+              <div className="bg-white rounded-2xl p-6 max-w-md w-full shadow-2xl">
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-2xl font-bold text-amber-900">Configuración</h3>
+                  <button
+                    onClick={() => setShowSettings(false)}
+                    className="text-3xl text-stone-400 btn-active"
+                  >
+                    ✕
+                  </button>
+                </div>
+                
+                <div className="space-y-6">
+                  <div>
+                    <label className="block text-sm font-bold text-stone-700 mb-2">
+                      API Key de Anthropic
+                    </label>
+                    <input
+                      type="password"
+                      value={apiKey}
+                      onChange={(e) => setApiKey(e.target.value)}
+                      placeholder="sk-ant-..."
+                      className="w-full p-4 bg-stone-50 border-2 border-stone-200 rounded-xl focus:border-amber-500 focus:outline-none"
+                    />
+                    <button
+                      onClick={handleSaveApiKey}
+                      className="w-full mt-3 bg-amber-600 text-white p-4 rounded-xl font-bold shadow-lg btn-active"
+                    >
+                      Guardar API Key
+                    </button>
+                  </div>
+                  
+                  <div className="border-t-2 border-stone-200 pt-4">
+                    <p className="text-sm text-stone-600">
+                      <strong>Versión:</strong> 2.0<br/>
+                      <strong>Creado con:</strong> Claude AI
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Bottom Navigation */}
+          <div className="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-stone-200 flex justify-around p-4 shadow-lg">
+            {[
+              { emoji: '🏠', label: 'Inicio', active: true },
+              { emoji: '💪', label: 'Rutina', active: false },
+              { emoji: '🥗', label: 'Nutrición', active: false },
+              { emoji: '📊', label: 'Stats', active: false }
+            ].map((item, i) => (
+              <button
+                key={i}
+                onClick={() => alert(`Próximamente: ${item.label}`)}
+                className={`flex flex-col items-center gap-1 p-2 rounded-xl btn-active ${item.active ? 'text-amber-600' : 'text-stone-400'}`}
+              >
+                <div className="text-2xl">{item.emoji}</div>
+                <span className="text-xs font-semibold">{item.label}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Floating Chat Button */}
+          <button
+            onClick={() => alert('Chat con IA - Próximamente')}
+            className="fixed bottom-28 right-6 bg-gradient-to-br from-amber-600 to-red-600 text-white p-5 rounded-full shadow-2xl btn-active"
+          >
+            <span className="text-3xl">💬</span>
+          </button>
+        </div>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<FitnessApp />);
+  </script>
+</body>
+</html>
